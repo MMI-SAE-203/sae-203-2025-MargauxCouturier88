@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getFilm } from "../backend/backend.mjs"; // Import de la fonction qui récupère les films
+import { getFilm } from "../../backend/backend.mjs"; // Import de la fonction qui récupère les films
 
 const films = await getFilm(); // Appel de la fonction pour récupérer les films
 ---
