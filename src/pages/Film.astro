@@ -1,8 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getFilm } from "../backend/backend.mjs"; // Import de la fonction qui récupère les films
 
+const films = await getFilm(); // Appel de la fonction pour récupérer les films
 ---
 
 <Base titre="Accueil">
     <h1>Accueil</h1>
+    <h2>Liste des films</h2>
+    <ul>
+        {films.map(film => (
+            <li key={film.id}>
+                <strong>{film.titre}</strong>  
+                <p><img src={film.affiche} alt="Affiche du film" width="100" /></p>
+                <p><strong>Synopsis :</strong> {film.synopsis}</p>
+                <p><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank">Voir</a></p>
+                <p><strong>Durée :</strong> {film.duree} min</p>
+                <p><strong>Langue :</strong> {film.langue}</p>
+                <p><strong>Date :</strong> {film.date_heure_projection}</p>
+                <p><strong>Salle :</strong> {film.salle_projection}</p>
+                <p><strong>Réalisateur :</strong> {film.realisateur}</p>
+                <p><img src={film.photo_realisateur} alt="Photo du réalisateur" width="100" /></p>
+                <p><strong>Bio :</strong> {film.bio_realisateur}</p>
+                <p><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
+            </li>
+        ))}
+    </ul>
 </Base>
+

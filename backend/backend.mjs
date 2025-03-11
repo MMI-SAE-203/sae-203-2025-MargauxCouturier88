@@ -1,6 +1,31 @@
 import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090');
 
+// Importer les collections
+
+// Collection Invité
+export async function GetInvite() {
+    const records = await pb.collection('Invite').getFullList();
+    return new Response(JSON.stringify(records), { headers: { "Content-Type": "application/json" } });
+  }
+
+// Collection Film
+export async function getFilm() {
+    try {
+        const records = await pb.collection('Film').getFullList(); // Vérifie que la collection s'appelle bien "Film"
+        return records; // Retourne les données brutes
+    } catch (error) {
+        console.error("Erreur lors de la récupération des films :", error);
+        return []; // Retourne un tableau vide en cas d'erreur
+    }
+}
+
+// Collection Activité
+export async function GetActivite() {
+    const records = await pb.collection('Activite').getFullList();
+    return new Response(JSON.stringify(records), { headers: { "Content-Type": "application/json" } });
+  }
+
 // Retourne la liste de tous les films triés par date de projection
 
 export async function getAllFilm() {
