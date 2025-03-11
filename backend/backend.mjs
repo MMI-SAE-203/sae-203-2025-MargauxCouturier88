@@ -6,24 +6,20 @@ const pb = new PocketBase('http://localhost:8090');
 // Collection Invité
 export async function GetInvite() {
     const records = await pb.collection('Invite').getFullList();
-    return new Response(JSON.stringify(records), { headers: { "Content-Type": "application/json" } });
+    return records; 
   }
 
 // Collection Film
 export async function getFilm() {
-    try {
-        const records = await pb.collection('Film').getFullList(); // Vérifie que la collection s'appelle bien "Film"
-        return records; // Retourne les données brutes
-    } catch (error) {
-        console.error("Erreur lors de la récupération des films :", error);
-        return []; // Retourne un tableau vide en cas d'erreur
-    }
+        const records = await pb.collection('Film').getFullList(); 
+        return records; 
+
 }
 
 // Collection Activité
 export async function GetActivite() {
     const records = await pb.collection('Activite').getFullList();
-    return new Response(JSON.stringify(records), { headers: { "Content-Type": "application/json" } });
+    return records; 
   }
 
 // Retourne la liste de tous les films triés par date de projection
@@ -53,25 +49,25 @@ export async function getAllInvite() {
 
 // Retourne les infos d'un film en donnant son id en paramètre
 
-export async function getFilmById(id: string) {
+export async function getFilmId(id) {
     return await pb.collection('Film').getOne(id);
   }
 
 // Retourne les infos d'une activité en donnant son id en paramètre
 
-export async function getActivityById(id: string) {
+export async function getActiviteId(id) {
     return await pb.collection('Activite').getOne(id);
   }
 
 // Retourne les infos d'un acteur / réalisateur en donnant son id en paramètre
 
-export async function getParticipantById(id: string) {
+export async function getInviteId(id) {
     return await pb.collection('Invite').getOne(id);
   }
 
 // Retourne toutes les activités d’un animateur donné par son id
 
-export async function getActivitiesByAnimatorId(id: string) {
+export async function getActiviteAnimateurId(id) {
     return await pb.collection('Activite').getFullList({
       filter: `animateur_id = "${id}"`,
     });
@@ -79,15 +75,15 @@ export async function getActivitiesByAnimatorId(id: string) {
 
 // Retourne toutes les activités d’un animateur donné par son nom
 
-export async function getActivitiesByAnimatorName(name: string) {
+export async function getActiviteAnimateurNom(titre) {
     return await pb.collection('Activite').getFullList({
-      filter: `animateur_nom = "${name}"`,
+      filter: `animateur_nom = "${titre}"`,
     });
   }
 
 // Aermet d’ajouter ou modifier les informations d’un film, activité ou invité
 
-export async function upsertRecord(collection: string, data: any, id?: string) {
+export async function upsertRecord(collection) {
     if (id) {
       // Modifier
       return await pb.collection(collection).update(id, data);
