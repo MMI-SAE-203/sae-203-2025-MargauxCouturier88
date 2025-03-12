@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getAllFilm } from "../../../backend/backend.mjs";
+import ImagePB from '../../components/ImagePB.astro';
+import Card from '../../components/Card.astro';
+
+const films = await getAllFilm();
+console.log(films);
+---
+<Base>
+    <h1>Programmation</h1>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {films.map((film) => <Card {...film}/> )}
+    </section>
+</Base>

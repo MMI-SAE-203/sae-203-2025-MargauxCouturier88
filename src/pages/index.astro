@@ -6,5 +6,106 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base titre="Accueil">
-    <h1>Accueil</h1>
+    <section class="relative w-full mt-10 mb-20">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start">
+          <!-- Image -->
+          <img src="/src/assets/img/accueil/photoaccueil.svg"
+               alt="Festival d'Halloween"
+               class="w-full lg:w-1/2 h-64 object-cover lg:object-contain lg:h-auto">
+      
+          <!-- Texte -->
+          <div class="p-6 lg:w-1/2 text-center lg:text-left">
+            <h1 class="text-3xl font-bold">Festiv’Halloween</h1>
+            <p class="mt-4 text-lg">Le Festiv’Halloween vous donne rendez-vous du <strong>29 au 31 octobre au Cinéma Le Colisée de Montbéliard</strong>, en Nord Franche-Comté ! Cet événement accueille petits et grands, avec une journée dédiée aux enfants et une autre aux amateurs de frissons. Entrée : 10€. Restauration sur place. Venez vivre une expérience magique en famille ou entre amis dans une ambiance ensorcelante !</p>
+            <p class="mt-4 text-lg">Passez un agréable moment de peur et d’horreur</p>
+          </div>
+        </div>
+      </section>
+
+ <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+            <img src="/src/assets/img/accueil/billeterie.svg" alt="Billet de cinéma" class="w-full h-52 object-cover">
+    
+            <div class="p-6 text-center">
+             <h2 class="text-xl font-bold mb-4">Billetterie</h2>
+            <p class="text-black text-lg leading-relaxed">
+                Préparez-vous pour des frissons et du fun ! Que vous soyez amateur de films effrayants ou de contes d'Halloween pour toute la famille, notre festival vous promet des moments inoubliables. Réservez vite vos places pour ne rien manquer !
+            </p>
+
+            <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
+                En savoir plus !
+          </a>
+            </div>
+        </div>
+    
+
+      <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+        <img src="/src/assets/img/accueil/adulte.svg" alt="Programmation adulte" class="w-full h-52 object-cover">
+    
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-bold mb-4">Programmation pour adulte</h2>
+          <p class="text-black text-lg leading-relaxed">
+            Plongez dans l'univers sombre et captivant de notre programmation spéciale Halloween pour adultes. Frissons garantis avec une sélection de films effrayants qui vous tiendront en haleine toute la nuit. Osez cliquer pour découvrir ce qui vous attend... si vous n'avez pas peur !
+          </p>
+
+          <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
+            En savoir plus !
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+        <img src="/src/assets/img/accueil/enfant.svg" alt="Programmation enfant" class="w-full h-52 object-cover">
+    
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-bold mb-4">Programmation pour enfant</h2>
+          <p class="text-black text-lg leading-relaxed">
+            Découvrez notre sélection spéciale de films d'Halloween pour enfants ! Plongez dans l'univers magique et amusant de cette fête, avec des films adaptés aux plus jeunes. Cliquez pour explorer la programmation et partager un moment cinéma en famille !
+          </p>
+
+          <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
+            En savoir plus !
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+        <img src="/src/assets/img/accueil/activite.svg" alt="Activités" class="w-full h-52 object-cover">
+    
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-bold mb-4">Activités</h2>
+          <p class="text-black text-lg leading-relaxed">
+            Plongez au cœur de l’univers d’Halloween avec nos activités spéciales ! Participez à des ateliers créatifs, explorez des expositions fascinantes et profitez d’animations envoûtantes pour toute la famille. Cliquez pour en savoir plus et vivre une expérience immersive !
+          </p>
+
+          <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
+            En savoir plus !
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+        <img src="/src/assets/img/accueil/infos.svg" alt="Infos pratique" class="w-full h-52 object-cover">
+    
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-bold mb-4">Infos pratiques</h2>
+          <div class="text-black text-lg leading-relaxed">
+            <p>
+            En cliquant ici, vous aurez accès à toutes les informations essentielles pour profiter pleinement du festival :
+            </p>
+            <li>Tarifs : Découvrez nos prix et les différentes options.</li>
+            <li>Lieux : Trouvez le festival dans votre ville.</li>
+            <li>Hébergement : Où loger pour ne rien manquer des festivités ?</li>
+            <li>Transport : Les meilleures façons de venir, en toute sécurité.</li>
+            <li>FAQ : Toutes les réponses à vos questions.</li>
+            <p>
+            Préparez votre expérience en toute sérénité !
+            </p>
+         </div>
+          <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
+            En savoir plus !
+          </a>
+        </div>
+      </div>
+ </div>
 </Base>

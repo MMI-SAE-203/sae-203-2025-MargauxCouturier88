@@ -1,6 +1,7 @@
 import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://localhost:8090');
 
+export { pb };
 // Importer les collections
 
 // Collection Invité
@@ -25,10 +26,9 @@ export async function GetActivite() {
 // Retourne la liste de tous les films triés par date de projection
 
 export async function getAllFilm() {
-    return await pb.collection('Film').getFullList({
-      sort: 'date_heure_projection',
-    });
-  }
+    const records = await pb.collection('Film').getFullList();
+    return records;
+}
 
 // Retourne la liste des activités triés par date de projection
 
@@ -50,8 +50,9 @@ export async function getAllInvite() {
 // Retourne les infos d'un film en donnant son id en paramètre
 
 export async function getFilmId(id) {
-    return await pb.collection('Film').getOne(id);
-  }
+    const film = await pb.collection('Film').getOne(id);
+    return film;
+}
 
 // Retourne les infos d'une activité en donnant son id en paramètre
 
@@ -92,3 +93,5 @@ export async function upsertRecord(collection) {
       return await pb.collection(collection).create(data);
     }
   }
+
+
