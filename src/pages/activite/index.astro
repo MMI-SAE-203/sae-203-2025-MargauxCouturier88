@@ -1,8 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { getAllActivite } from "../../../backend/backend.mjs";
+import ImagePB from '../../components/ImagePB.astro';
+import CardActivite from '../../components/CardActivite.astro';
 
+const activite = await getAllActivite();
+console.log(activite);
 ---
-
-<Base titre="Activité">
-    <h1>Accueil</h1> 
+<Base>
+    <h1>Activité</h1>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {activite.map((activite) => <CardActivite {...activite}/> )}
+    </section>
 </Base>
