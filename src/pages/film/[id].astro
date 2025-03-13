@@ -12,32 +12,43 @@ console.log(film);
 <Base titre={film.titre}>
     <ul>
             <li>
-                <strong>{film.titre}</strong>
-                <div class="relative w-full h-110 overflow-hidden rounded-lg">
-                    <ImagePB 
-                        record={film} 
-                        field="affiche" 
-                        alt={film.titre} 
-                        classImg="w-full h-full object-cover"
-                    />
+                <div class="flex flex-col lg:flex-row items-center lg:items-start">
+                    <div class="relative w-70 h-110 overflow-hidden rounded-lg">
+                        <ImagePB 
+                            record={film} 
+                            field="affiche" 
+                            alt={film.titre} 
+                            classImg="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="p-6 lg:w-1/2 text-center lg:text-left">
+                        <strong>{film.titre}</strong>
+                        <div set:html={film.synopsis}></div>
+                        <p><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank">Voir</a></p>
+                        <p><strong>Durée :</strong> {film.duree} min</p>
+                        <p><strong>Langue :</strong> {film.langue}</p>
+                        <p><strong>Date :</strong> {film.date_heure_projection}</p>
+                        <p><strong>Salle :</strong> {film.salle_projection}</p>
+                    </div>
                 </div>
-                <p><strong>Synopsis :</strong> {film.synopsis}</p>
-                <p><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank">Voir</a></p>
-                <p><strong>Durée :</strong> {film.duree} min</p>
-                <p><strong>Langue :</strong> {film.langue}</p>
-                <p><strong>Date :</strong> {film.date_heure_projection}</p>
-                <p><strong>Salle :</strong> {film.salle_projection}</p>
-                <p><strong>Réalisateur :</strong> {film.realisateur}</p>
-                <div class="relative w-full h-110 overflow-hidden rounded-lg">
-                    <ImagePB 
-                        record={film} 
-                        field="photo_realisateur" 
-                        alt={film.titre} 
-                        classImg="w-full h-full object-cover"
-                    />
+
+                <div class="flex flex-col lg:flex-row items-center lg:items-start">
+                    <div class="relative w-70 h-110 overflow-hidden rounded-lg">
+                        <ImagePB 
+                            record={film} 
+                            field="photo_realisateur" 
+                            alt={film.titre} 
+                            classImg="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="p-6 lg:w-1/2 text-center lg:text-left">
+                        <h3>Réalisateur</h3>
+                        <p><strong></strong> {film.realisateur}</p>
+                        
+                        <div set:html={film.bio_realisateur}></div>
+                        <p><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
+                        </div>
                 </div>
-                <p><strong>Bio :</strong> {film.bio_realisateur}</p>
-                <p><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
             </li>
 
     </ul>

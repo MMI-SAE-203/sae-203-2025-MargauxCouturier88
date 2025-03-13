@@ -25,7 +25,7 @@ console.log(Activite);
                 <p><strong>Catégorie :</strong> {Activite.categorie}</p>
                 <p><strong>Temps de l'activité :</strong> {Activite.duree} min</p>
                 <p><strong>Salle :</strong> {Activite.lieu}</p>
-                <p><strong>Type :</strong> {Activite.description}</p>
+                <div set:html ={Activite.description}></div>
 
     </ul>
 </Base>

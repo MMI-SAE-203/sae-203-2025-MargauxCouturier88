@@ -12,18 +12,19 @@ console.log(invite);
 <Base titre={invite.nom}>
     <ul>
             <li>
-                <strong>{invite.nom}</strong>
-                <div class="relative w-full h-110 overflow-hidden rounded-lg">
-                    <ImagePB 
-                        record={invite} 
-                        field="photo" 
-                        alt={invite.nom} 
-                        classImg="w-full h-full object-cover"
-                    />
+                <div class="flex flex-col lg:flex-row items-center lg:items-start">
+                    <div class="relative w-110 h-80 overflow-hidden rounded-lg">
+                        <ImagePB 
+                            record={invite} 
+                            field="photo" 
+                            alt={invite.nom} 
+                            classImg="w-full h-full object-cover"
+                        />
                 </div>
+                <strong>{invite.nom}</strong>
                 <p><strong>Catégorie :</strong> {invite.Categorie}</p>
                 <h3>Biographie</h3>
-                <p><strong></strong> {invite.biographie}</p>
+                <div set:html={invite.biographie}></div>
             </li>
 
     </ul>
