@@ -1,8 +1,154 @@
 ---
 import Base from '../layouts/Base.astro';
+import Carte from "../components/Carte.astro";
 
+const faqs = [
+  {
+    question: "Quand et où se déroule le festival ?",
+    answer: "Le festival se déroule du 25 au 31 octobre au Cinéma Fantôme, 13 rue des Ombres, Paris."
+  },
+  {
+    question: "Quels types de films sont projetés ?",
+    answer: "Nous projetons des films d'horreur classiques, des nouveautés ainsi que des courts-métrages indépendants."
+  },
+  {
+    question: "Comment acheter des billets ?",
+    answer: "Les billets sont disponibles en ligne sur notre site web ou à la billetterie du festival."
+  },
+  {
+    question: "Y a-t-il un concours de cosplay ?",
+    answer: "Oui ! Un concours de cosplay aura lieu le 30 octobre avec des prix à gagner pour les meilleurs costumes."
+  },
+];
+
+let openIndex = -1;
+
+function toggleFAQ(index) {
+  openIndex = openIndex === index ? -1 : index;
+}
+
+const hotels = [
+  { 
+    "name": "BRIT HOTEL BRISTOL", 
+    "address": "2 Rue de Velotte, 25200 Montbéliard", 
+    "img": "../../img/hotel/brit-hotel.jpg",
+    "link": "https://bristol-montbeliard.brithotel.fr/" 
+  },
+  { 
+    "name": "GREET HÔTEL", 
+    "address": "6 Rue des Frères Deckherr, 25200 Montbéliard", 
+    "img": "../../img/hotel/greet-hotel.jpg",
+    "link": "https://all.accor.com/"
+  },
+  { 
+    "name": "B&B HOTEL", 
+    "address": "11 Av. du Général Leclerc, 25600 Sochaux", 
+    "img": "../../img/hotel/BB-hotel.jpg",
+    "link": "https://www.hotel-bb.com/"
+  },
+  { 
+    "name": "CHARME HÔTEL ET SPA", 
+    "address": "1 Plaine du Redon, 25400 Arbouans", 
+    "img": "../../img/hotel/hotel-charme.jpg",
+    "link": "http://www.charmehotel-montbeliard.com/"
+  },
+  { 
+    "name": "CAMPING LES LUMES", 
+    "address": "10 Rue des Lumes, 25250 L'Isle-sur-le-Doubs", 
+    "img": "../../img/hotel/camping-lumes.jpg",
+    "link": "https://www.les-lumes.com"
+  },
+  { 
+    "name": "CAMPING DES GRANDS ANSANGES", 
+    "address": "Rue de l'Église, 25350 Mandeure", 
+    "img": "../../img/hotel/camping-ansanges.jpg",
+    "link": "https://www.facebook.com/campinggrandsansanges"
+  }
+];
 ---
 
 <Base titre="Infos pratiques">
-    <h1>Accueil</h1> 
+    <h1>Infos pratiques</h1> 
+    <p>Vous trouverez ici toutes les informations pratiques pour profiter pleinement de votre festival de film d'Halloween.</p>
+    <section>
+        <h2>Nos tarifs</h2>
+            <div>
+                <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
+                    <p class="text-4xl font-bold">10 €</p>
+                    <p class="text-lg mt-2">Tarif pour tous (adultes et enfants)</p>
+                </div>
+
+                <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
+                    <p class="text-4xl font-bold">5 €</p>
+                    <p class="text-lg mt-2">Tarif pour tous les étudiants</p>
+                </div>
+            </div>
+    </section>
+    <section>
+        <h2>Lieu de rendez-vous</h2>
+        <div>
+            <img src="/src/assets/icons/lieu.svg" alt="Icon" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
+            <p>Le festival se déroule dans la ville de Montbéliard, dans le département du Doubs, en région Bourgogne-Franche-Comté.</p>
+            <p>Adresse : 1 rue du Château, 25200 Montbéliard</p>
+            <section class="flex flex-col items-center gap-6">
+                <h2 class="text-2xl font-bold"></h2>
+                <Carte />
+            </section>
+        </div>
+    </section>
+    <section>
+        <h2>Hébergement au alentour</h2>
+        <div>
+            <img src="/src/assets/icons/hotel.svg" alt="Icon" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
+            <p>Vous cherchez un hébergement pour profiter pleinement du festival ? Voici quelques hôtels et campigs situés à proximité :</p>
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="flex overflow-x-auto gap-6 py-4 scroll-smooth scroll-snap-x mandatory">
+                  {hotels.map((hotel) => (
+                    <div class="min-w-[300px] bg-[#3C3C5C] text-white rounded-2xl p-5 shadow-lg flex-shrink-0">
+                      <img src={hotel.img} alt={hotel.name} class="rounded-xl w-full h-60 object-cover">
+                      <h3 class="text-2xl font-semibold mt-4 text-center">{hotel.name}</h3>
+                      <p class="text-center mt-2">{hotel.address}</p>
+                      <div class="text-center mt-4">
+                        <a href={hotel.link} target="_blank" rel="noopener noreferrer">
+                          <button class="border-2 border-white text-white px-5 py-2 rounded-lg hover:bg-white hover:text-[#3C3C5C] transition">
+                            Réserver
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+        </div>
+    </section>
+    <section>
+        <h2>Transport</h2>
+        <div>
+            <img src="/src/assets/img/montbeliard.jpg" alt="Ville de Montbéliard" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
+            <p>Vous venez de loin et vous vous demandez comment vous rendre au festival ? Voici quelques informations pour vous aider à organiser votre trajet :</p>
+            <p>En voiture : Le festival est accessible par l'autoroute A36, sortie Montbéliard.</p>
+            <p>En train : La gare de Montbéliard est desservie par des trains en provenance de Paris, Lyon, Strasbourg et Besançon.</p>
+            <p>En bus : Des lignes de bus desservent la ville de Montbéliard depuis les villes voisines.</p>
+        </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto p-6">
+        <h2 class="text-3xl font-bold text-center text-orange-600 mb-6">FAQ</h2>
+        <div class="space-y-4">
+            {faqs.map((faq, index) => (
+            <div class="border border-gray-700 rounded-lg overflow-hidden">
+                <button
+                class="w-full text-left p-4 bg-gray-800 text-white flex justify-between items-center"
+                on:click={() => toggleFAQ(index)}
+                >
+                <span>{faq.question}</span>
+                <span class="transform transition-transform" class:list={[openIndex === index ? 'rotate-180' : '']}>▼</span>
+                </button>
+                {openIndex === index && (
+                <div class="p-4 bg-gray-900 text-gray-300">{faq.answer}</div>
+                )}
+            </div>
+            ))}
+        </div>
+    </section>
 </Base>

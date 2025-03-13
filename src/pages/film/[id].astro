@@ -1,0 +1,28 @@
+---
+import { getFilm, oneFilmID } from '../../../backend/backend.mjs';
+import Base  from '../../layouts/Base.astro';
+const { ...film} = Astro.props;
+
+const { id } = Astro.params;
+const oneFilmID = await getFilm(id);
+---
+
+<Base titre={film.titre}>
+    <ul>
+            <li>
+                <strong>{film.titre}</strong>
+                <p><img src={film.imgUrl} alt="Affiche du film" width="100" /></p>
+                <p><strong>Synopsis :</strong> {film.synopsis}</p>
+                <p><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank">Voir</a></p>
+                <p><strong>Durée :</strong> {film.duree} min</p>
+                <p><strong>Langue :</strong> {film.langue}</p>
+                <p><strong>Date :</strong> {film.date_heure_projection}</p>
+                <p><strong>Salle :</strong> {film.salle_projection}</p>
+                <p><strong>Réalisateur :</strong> {film.realisateur}</p>
+                <p><img src={film.photo_realisateur} alt="Photo du réalisateur" width="100" /></p>
+                <p><strong>Bio :</strong> {film.bio_realisateur}</p>
+                <p><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
+            </li>
+
+    </ul>
+</Base>

@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titre="Contact">
+    <h1>Contactez-nous</h1>
+
+    <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter ! Vous pouvez nous joindre par en remplissant le formulaire ci-dessous. Nous serons ravis de vous répondre dans les plus brefs délais.</p>
+
+    <form action="/offres/add" method="POST" enctype="multipart/form-data">
+
+        <div class="relative">
+            <input type="text" name="nomMaison" id="nomMaison" placeholder=" " required
+                class="peer w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent" />
+            <label for="nomMaison"
+                class="absolute left-3 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base transition-all duration-200 peer-focus:top-1 peer-focus:text-sm peer-focus:text-blue-500">
+                Nom 
+            </label>
+        </div>
+
+        <div class="relative">
+            <input type="text" name="nomMaison" id="nomMaison" placeholder=" " required
+                class="peer w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent" />
+            <label for="nomMaison"
+                class="absolute left-3 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base transition-all duration-200 peer-focus:top-1 peer-focus:text-sm peer-focus:text-blue-500">
+                Prénom
+            </label>
+        </div>
+
+        <div class="relative">
+            <input type="text" name="nomMaison" id="nomMaison" placeholder=" " required
+                class="peer w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent" />
+            <label for="nomMaison"
+                class="absolute left-3 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base transition-all duration-200 peer-focus:top-1 peer-focus:text-sm peer-focus:text-blue-500">
+                Adresse mail
+            </label>
+        </div>
+
+        <div class="relative">
+            <input type="text" name="nomMaison" id="nomMaison" placeholder=" " required
+                class="peer w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent" />
+            <label for="nomMaison"
+                class="absolute left-3 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base transition-all duration-200 peer-focus:top-1 peer-focus:text-sm peer-focus:text-blue-500">
+                Motif de la demande
+            </label>
+        </div>
+
+        <div class="relative">
+            <input type="text" name="nomMaison" id="nomMaison" placeholder=" " required
+                class="peer w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-transparent" />
+            <label for="nomMaison"
+                class="absolute left-3 top-3 text-gray-500 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base transition-all duration-200 peer-focus:top-1 peer-focus:text-sm peer-focus:text-blue-500">
+                Entrer votre message
+            </label>
+        </div>
+
+        <button type="submit"
+            class="w-full p-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md font-semibold hover:from-blue-600 hover:to-blue-800 transition-all transform hover:scale-105">
+            Envoyer ma demande !
+        </button>
+    </form>
+
+    <section>
+        <h2>Nos Coordonnées</h2>
+        <p>Adresse mail</p>
+        <p>hallofestiv-client@gmail.com</p>
+        <p>Numéro de téléphone</p>
+        <p>03.99.88.77.66</p>
+        <p>Adresse postale</p>
+        <p>8 Rue Henri Mouhot, 25200 Montbéliard</p>
+    </section>
+
+    <section>
+        <h2>Suivez-nous</h2>
+        <p>Retrouvez-nous sur les réseaux sociaux pour ne rien manquer de notre actualité !</p>
+        <div>
+            <a href="https://www.facebook.com" class="mr-4">
+                <img src="/src/assets/icons/facebook.svg" alt="Facebook" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com" class="mr-4">
+                <img src="/src/assets/icons/instagram.svg" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://www.tiktok.com">
+                <img src="/src/assets/icons/tiktok.svg" alt="Tiktok" class="w-8 h-8">
+            </a>
+            <a href="https://www.pinterest.com">
+                <img src="/src/assets/icons/pinterest.svg" alt="Pinterest" class="w-8 h-8">
+            </a>
+        </div>
+    </section>
+</Base>

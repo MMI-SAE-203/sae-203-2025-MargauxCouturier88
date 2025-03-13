@@ -8,7 +8,7 @@ import Base from '../layouts/Base.astro';
 <Base titre="Accueil">
     <section class="relative w-full mt-10 mb-20">
         <div class="flex flex-col lg:flex-row items-center lg:items-start">
-            
+
           <img src="/src/assets/img/accueil/photoaccueil.svg"
                alt="Festival d'Halloween"
                class="w-full lg:w-1/2 h-64 object-cover lg:object-contain lg:h-auto">
@@ -36,30 +36,14 @@ import Base from '../layouts/Base.astro';
           </a>
             </div>
         </div>
-    
-
-      <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-        <img src="/src/assets/img/accueil/adulte.svg" alt="Programmation adulte" class="w-full h-52 object-cover">
-    
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-bold mb-4">Programmation pour adulte</h2>
-          <p class="text-black text-lg leading-relaxed">
-            Plongez dans l'univers sombre et captivant de notre programmation spéciale Halloween pour adultes. Frissons garantis avec une sélection de films effrayants qui vous tiendront en haleine toute la nuit. Osez cliquer pour découvrir ce qui vous attend... si vous n'avez pas peur !
-          </p>
-
-          <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
-            En savoir plus !
-          </a>
-        </div>
-      </div>
 
       <div class="max-w-sm mx-auto bg-gray-100 rounded-lg shadow-lg overflow-hidden">
         <img src="/src/assets/img/accueil/enfant.svg" alt="Programmation enfant" class="w-full h-52 object-cover">
     
         <div class="p-6 text-center">
-          <h2 class="text-xl font-bold mb-4">Programmation pour enfant</h2>
+          <h2 class="text-xl font-bold mb-4">Programmation</h2>
           <p class="text-black text-lg leading-relaxed">
-            Découvrez notre sélection spéciale de films d'Halloween pour enfants ! Plongez dans l'univers magique et amusant de cette fête, avec des films adaptés aux plus jeunes. Cliquez pour explorer la programmation et partager un moment cinéma en famille !
+            Plongez dans l’univers envoûtant d’Halloween avec notre sélection spéciale pour petits et grands ! Frissons garantis pour les amateurs de sensations fortes avec des films sombres et captivants, tandis que les plus jeunes pourront profiter d’un univers magique et amusant, parfait pour toute la famille. Osez découvrir notre programmation… si vous n’avez pas peur !
           </p>
 
           <a href="#" class="inline-block mt-6 px-6 py-2 border border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
@@ -107,4 +91,15 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
  </div>
+
+    <section>
+        <h2 class="text-3xl font-bold text-center mt-10 mb-15">Nos partenaires</h2>
+        <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <img src="/src/assets/img/partenaire/megarama.jpg" alt="Cinéma Megarama" class="w-full h-24 object-contain">
+          <img src="/src/assets/img/partenaire/agglomeration-montbeliard.jpg" alt="Agglomération de Montebéliard" class="w-full h-24 object-contain">
+          <img src="/src/assets/img/partenaire/axa.jpg" alt="Axa" class="w-full h-24 object-contain">
+          <img src="/src/assets/img/partenaire/creditmutuel.jpg" alt="Crédit Mutuel" class="w-full h-24 object-contain">
+          <img src="/src/assets/img/partenaire/subway.jpg" alt="Subway" class="w-full h-24 object-contain">
+        </div>
+    </section>
 </Base>

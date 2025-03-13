@@ -18,7 +18,7 @@ export async function getFilm() {
 }
 
 // Collection Activité
-export async function GetActivite() {
+export async function getActivite() {
     const records = await pb.collection('Activite').getFullList();
     return records; 
   }
@@ -42,10 +42,10 @@ export async function getAllActivite() {
 // Retourne la liste de tous les acteurs / réalisateurs participant au festival triés par ordre alphabétique
 
 export async function getAllInvite() {
-    return await pb.collection('Invite').getFullList({
-      sort: 'nom',
-    });
-  }
+    const records = await pb.collection('Invite').getFullList();
+    return records;
+}
+
 
 // Retourne les infos d'un film en donnant son id en paramètre
 
@@ -94,4 +94,8 @@ export async function upsertRecord(collection) {
     }
   }
 
-
+// Fonction pour récupérer un film spécifique par son ID
+export async function oneFilmID(id) {
+    const oneRecord = await pb.collection('Film').getOne(id);
+    return oneRecord;
+}
