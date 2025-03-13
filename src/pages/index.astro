@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+//import PartenaireCarousel from "../components/PartenaireCarousel.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -94,12 +95,6 @@ import Base from '../layouts/Base.astro';
 
     <section>
         <h2 class="text-3xl font-bold text-center mt-10 mb-15">Nos partenaires</h2>
-        <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-          <img src="/src/assets/img/partenaire/megarama.jpg" alt="Cinéma Megarama" class="w-full h-24 object-contain">
-          <img src="/src/assets/img/partenaire/agglomeration-montbeliard.jpg" alt="Agglomération de Montebéliard" class="w-full h-24 object-contain">
-          <img src="/src/assets/img/partenaire/axa.jpg" alt="Axa" class="w-full h-24 object-contain">
-          <img src="/src/assets/img/partenaire/creditmutuel.jpg" alt="Crédit Mutuel" class="w-full h-24 object-contain">
-          <img src="/src/assets/img/partenaire/subway.jpg" alt="Subway" class="w-full h-24 object-contain">
-        </div>
+        <PartenaireCarousel />  
     </section>
 </Base>

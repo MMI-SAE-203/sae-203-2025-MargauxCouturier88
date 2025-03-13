@@ -1,0 +1,47 @@
+---
+import "swiper/css";
+import "swiper/css/autoplay";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+
+// onMount(() => {
+//   new Swiper(".partenaire-swiper", {
+//     modules: [Autoplay],
+//     slidesPerView: 2,
+//     spaceBetween: 20,
+//     loop: true,
+//     autoplay: {
+//       delay: 3000,
+//       disableOnInteraction: false,
+//     },
+//     breakpoints: {
+//       640: { slidesPerView: 3 },
+//       1024: { slidesPerView: 4 },
+//     },
+//   });
+// });
+---
+
+<section>
+  <h2 class="text-3xl font-bold text-center mt-10 mb-6">Nos partenaires</h2>
+
+  <div class="swiper partenaire-swiper w-full">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="/src/assets/img/partenaire/megarama.jpg" alt="Cinéma Megarama" class="w-full h-24 object-contain">
+      </div>
+      <div class="swiper-slide">
+        <img src="/src/assets/img/partenaire/agglomeration-montbeliard.jpg" alt="Agglomération de Montbéliard" class="w-full h-24 object-contain">
+      </div>
+      <div class="swiper-slide">
+        <img src="/src/assets/img/partenaire/axa.jpg" alt="Axa" class="w-full h-24 object-contain">
+      </div>
+      <div class="swiper-slide">
+        <img src="/src/assets/img/partenaire/creditmutuel.jpg" alt="Crédit Mutuel" class="w-full h-24 object-contain">
+      </div>
+      <div class="swiper-slide">
+        <img src="/src/assets/img/partenaire/subway.jpg" alt="Subway" class="w-full h-24 object-contain">
+      </div>
+    </div>
+  </div>
+</section>
