@@ -11,49 +11,68 @@ console.log(Hotel);
 ---
 
 <Base titre="Infos pratiques">
-    <h1>Infos pratiques</h1> 
-    <p>Vous trouverez ici toutes les informations pratiques pour profiter pleinement de votre festival de film d'Halloween.</p>
-    <section>
-        <h2>Nos tarifs</h2>
-            <div>
-                <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
-                    <p class="text-4xl font-bold">10 €</p>
-                    <p class="text-lg mt-2">Tarif pour tous (adultes et enfants)</p>
-                </div>
+    <h1 class="text-center text-3xl font-bold mb-4">Infos pratiques</h1>
+        <p class="text-lg mb-4 text-center">
+            Vous trouverez ici toutes les informations pratiques pour profiter pleinement de votre festival de film d'Halloween.
+        </p>
 
-                <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
-                    <p class="text-4xl font-bold">5 €</p>
-                    <p class="text-lg mt-2">Tarif pour tous les étudiants</p>
-                </div>
+    <section class="text-center">
+        <h2 class="text-2xl font-semibold mb-4">Nos tarifs</h2>
+        <div class="flex justify-center gap-8">
+            <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
+                <p class="text-4xl font-bold">10 €</p>
+                <p class="text-lg mt-2">Tarif pour tous (adultes et enfants)</p>
             </div>
-    </section>
-    <section>
-        <h2>Lieu de rendez-vous</h2>
-        <div>
-            <p>Le festival se déroule dans la ville de Montbéliard, dans le département du Doubs, en région Bourgogne-Franche-Comté.</p>
-            <p>Adresse : 1 rue du Château, 25200 Montbéliard</p>
-            <iframe class="responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.026820269293!2d6.794721376557588!3d47.50886889472098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479216e42555dd87%3A0xa70c3803c575d1e9!2s1%20Rue%20du%20Ch%C3%A2teau%2C%2025200%20Montb%C3%A9liard!5e0!3m2!1sfr!2sfr!4v1741854295304!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="bg-orange-500 text-white text-center p-6 rounded-xl shadow-md w-48">
+                <p class="text-4xl font-bold">5 €</p>
+                <p class="text-lg mt-2">Tarif pour tous les étudiants</p>
+            </div>
         </div>
     </section>
-    <section>
-        <h2>Hébergement au alentour</h2>
-        <div>
-            <p>Vous cherchez un hébergement pour profiter pleinement du festival ? Voici quelques hôtels et campigs situés à proximité :</p>
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Hotel.map((hotelItem) => <CardHotel {...hotelItem}/> )}
-            </section>
+    <section class="max-w-4xl mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Lieu de rendez-vous</h2>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="flex-1 space-y-2">
+                <p>Le festival se déroule dans la ville de Montbéliard, dans le département du Doubs, en région Bourgogne-Franche-Comté.</p>
+                <p><strong>Adresse :</strong> 1 rue du Château, 25200 Montbéliard</p>
+            </div>
+            <iframe 
+                class="responsive w-full md:w-1/2 h-64 md:h-80 rounded-lg shadow-lg" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.026820269293!2d6.794721376557588!3d47.50886889472098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479216e42555dd87%3A0xa70c3803c575d1e9!2s1%20Rue%20du%20Ch%C3%A2teau%2C%2025200%20Montb%C3%A9liard!5e0!3m2!1sfr!2sfr!4v1741854295304!5m2!1sfr!2sfr"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
-
-
     </section>
-    <section>
-        <h2>Transport</h2>
-        <div>
-            <img src="/src/assets/img/montbeliard.jpg" alt="Ville de Montbéliard" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
-            <p>Vous venez de loin et vous vous demandez comment vous rendre au festival ? Voici quelques informations pour vous aider à organiser votre trajet :</p>
-            <p>En voiture : Le festival est accessible par l'autoroute A36, sortie Montbéliard.</p>
-            <p>En train : La gare de Montbéliard est desservie par des trains en provenance de Paris, Lyon, Strasbourg et Besançon.</p>
-            <p>En bus : Des lignes de bus desservent la ville de Montbéliard depuis les villes voisines.</p>
+    
+    <section class="max-w-4xl mx-auto p-6">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Hébergement aux alentours</h2>
+        <div class="text-center mb-6">
+            <p>Vous cherchez un hébergement pour profiter pleinement du festival ? Voici quelques hôtels et campings situés à proximité :</p>
+        </div>
+        <section class="w-full max-w-screen-xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {Hotel.map((hotelItem) => <CardHotel {...hotelItem} /> )}
+            </div>
+        </section>
+    </section>
+    <section class="bg-gray-100 py-12 px-6 md:px-12 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Transport</h2>
+        
+        <div class="max-w-4xl mx-auto">
+            <img src="/src/assets/img/montbeliard.jpg" 
+                 alt="Ville de Montbéliard" 
+                 class="w-full h-64 object-cover rounded-xl shadow-lg mb-6">
+            
+            <p class="text-lg text-gray-700 mb-4 text-center">
+                Vous venez de loin et vous vous demandez comment vous rendre au festival ? Voici quelques informations pour vous aider à organiser votre trajet :
+            </p>
+    
+            <div class="space-y-4 text-gray-800">
+                <p class="flex items-center"><span class="text-2xl mr-2">🚗</span> <strong>En voiture :</strong> Le festival est accessible par l'autoroute <strong>A36</strong>, sortie Montbéliard.</p>
+                <p class="flex items-center"><span class="text-2xl mr-2">🚆</span> <strong>En train :</strong> La gare de Montbéliard est desservie par des trains en provenance de Paris, Lyon, Strasbourg et Besançon.</p>
+                <p class="flex items-center"><span class="text-2xl mr-2">🚌</span> <strong>En bus :</strong> Des lignes de bus desservent la ville de Montbéliard depuis les villes voisines.</p>
+            </div>
         </div>
     </section>
 
