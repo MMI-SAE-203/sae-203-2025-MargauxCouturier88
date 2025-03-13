@@ -1,0 +1,27 @@
+---
+import type { GetHotel } from "../../backend/backend.mjs";
+import ImagePB from "./ImagePB.astro";
+const { ...Hotel } = Astro.props;
+
+---
+
+<div class="flex overflow-x-auto gap-6 py-4 scroll-smooth scroll-snap-x mandatory">
+      <div class="min-w-[300px] bg-[#3C3C5C] text-white rounded-2xl p-5 shadow-lg flex-shrink-0">
+        <div class="relative rounded-xl w-full h-60 object-cover">
+            <ImagePB 
+                record={Hotel} 
+                field="img" 
+                alt={Hotel.img} 
+                classImg="w-full h-full object-cover"
+            />
+        </div>
+        <h3 class="text-2xl font-semibold mt-4 text-center">{Hotel.nom}</h3>
+        <p class="text-center mt-2">{Hotel.adresse}</p>
+        <div class="text-center mt-4">
+          <a href={Hotel.lieu} target="_blank" rel="noopener noreferrer">
+            <button class="border-2 border-white text-white px-5 py-2 rounded-lg hover:bg-white hover:text-[#3C3C5C] transition">
+              Réserver
+            </button>
+          </a>
+        </div>
+      </div>

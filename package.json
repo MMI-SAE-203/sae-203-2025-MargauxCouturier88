@@ -9,14 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "-": "^0.0.1",
     "@fontsource/creepster": "^5.2.5",
     "@tailwindcss/vite": "^4.0.13",
     "astro": "^5.4.2",
     "pocketbase": "^0.25.2",
-    "save": "^2.9.0"
-  },
-  "devDependencies": {
+    "save": "^2.9.0",
     "tailwindcss": "^4.0.13"
   }
 }

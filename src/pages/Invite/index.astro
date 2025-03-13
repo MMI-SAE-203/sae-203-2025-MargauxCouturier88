@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getAllInvite } from "../../../backend/backend.mjs";
 import ImagePB from '../../components/ImagePB.astro';
-import CardInvite from '../../components/CardActivite.astro';
+import CardInvite from '../../components/CardInvite.astro';
 
 const invite = await getAllInvite();
 console.log(invite);

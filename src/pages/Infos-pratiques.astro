@@ -1,70 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import Carte from "../components/Carte.astro";
+import { getAllHotel } from "../../backend/backend.mjs";
 
-const faqs = [
-  {
-    question: "Quand et où se déroule le festival ?",
-    answer: "Le festival se déroule du 25 au 31 octobre au Cinéma Fantôme, 13 rue des Ombres, Paris."
-  },
-  {
-    question: "Quels types de films sont projetés ?",
-    answer: "Nous projetons des films d'horreur classiques, des nouveautés ainsi que des courts-métrages indépendants."
-  },
-  {
-    question: "Comment acheter des billets ?",
-    answer: "Les billets sont disponibles en ligne sur notre site web ou à la billetterie du festival."
-  },
-  {
-    question: "Y a-t-il un concours de cosplay ?",
-    answer: "Oui ! Un concours de cosplay aura lieu le 30 octobre avec des prix à gagner pour les meilleurs costumes."
-  },
-];
+import CardHotel from '../components/Cardhotel.astro';
 
-let openIndex = -1;
+const Hotel = await getAllHotel();
+console.log(Hotel);
 
-function toggleFAQ(index) {
-  openIndex = openIndex === index ? -1 : index;
-}
 
-const hotels = [
-  { 
-    "name": "BRIT HOTEL BRISTOL", 
-    "address": "2 Rue de Velotte, 25200 Montbéliard", 
-    "img": "../../img/hotel/brit-hotel.jpg",
-    "link": "https://bristol-montbeliard.brithotel.fr/" 
-  },
-  { 
-    "name": "GREET HÔTEL", 
-    "address": "6 Rue des Frères Deckherr, 25200 Montbéliard", 
-    "img": "../../img/hotel/greet-hotel.jpg",
-    "link": "https://all.accor.com/"
-  },
-  { 
-    "name": "B&B HOTEL", 
-    "address": "11 Av. du Général Leclerc, 25600 Sochaux", 
-    "img": "../../img/hotel/BB-hotel.jpg",
-    "link": "https://www.hotel-bb.com/"
-  },
-  { 
-    "name": "CHARME HÔTEL ET SPA", 
-    "address": "1 Plaine du Redon, 25400 Arbouans", 
-    "img": "../../img/hotel/hotel-charme.jpg",
-    "link": "http://www.charmehotel-montbeliard.com/"
-  },
-  { 
-    "name": "CAMPING LES LUMES", 
-    "address": "10 Rue des Lumes, 25250 L'Isle-sur-le-Doubs", 
-    "img": "../../img/hotel/camping-lumes.jpg",
-    "link": "https://www.les-lumes.com"
-  },
-  { 
-    "name": "CAMPING DES GRANDS ANSANGES", 
-    "address": "Rue de l'Église, 25350 Mandeure", 
-    "img": "../../img/hotel/camping-ansanges.jpg",
-    "link": "https://www.facebook.com/campinggrandsansanges"
-  }
-];
 ---
 
 <Base titre="Infos pratiques">
@@ -90,36 +33,19 @@ const hotels = [
             <img src="/src/assets/icons/lieu.svg" alt="Icon" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
             <p>Le festival se déroule dans la ville de Montbéliard, dans le département du Doubs, en région Bourgogne-Franche-Comté.</p>
             <p>Adresse : 1 rue du Château, 25200 Montbéliard</p>
-            <section class="flex flex-col items-center gap-6">
-                <h2 class="text-2xl font-bold"></h2>
-                <Carte />
-            </section>
+            <iframe class="responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.026820269293!2d6.794721376557588!3d47.50886889472098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479216e42555dd87%3A0xa70c3803c575d1e9!2s1%20Rue%20du%20Ch%C3%A2teau%2C%2025200%20Montb%C3%A9liard!5e0!3m2!1sfr!2sfr!4v1741854295304!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <section>
         <h2>Hébergement au alentour</h2>
         <div>
-            <img src="/src/assets/icons/hotel.svg" alt="Icon" class="w-full h-52 object-cover rounded-lg shadow-lg mb-4">
             <p>Vous cherchez un hébergement pour profiter pleinement du festival ? Voici quelques hôtels et campigs situés à proximité :</p>
-            <div class="max-w-5xl mx-auto px-4">
-                <div class="flex overflow-x-auto gap-6 py-4 scroll-smooth scroll-snap-x mandatory">
-                  {hotels.map((hotel) => (
-                    <div class="min-w-[300px] bg-[#3C3C5C] text-white rounded-2xl p-5 shadow-lg flex-shrink-0">
-                      <img src={hotel.img} alt={hotel.name} class="rounded-xl w-full h-60 object-cover">
-                      <h3 class="text-2xl font-semibold mt-4 text-center">{hotel.name}</h3>
-                      <p class="text-center mt-2">{hotel.address}</p>
-                      <div class="text-center mt-4">
-                        <a href={hotel.link} target="_blank" rel="noopener noreferrer">
-                          <button class="border-2 border-white text-white px-5 py-2 rounded-lg hover:bg-white hover:text-[#3C3C5C] transition">
-                            Réserver
-                          </button>
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {Hotel.map((hotelItem) => <CardHotel {...hotelItem}/> )}
+            </section>
         </div>
+
+
     </section>
     <section>
         <h2>Transport</h2>
@@ -132,23 +58,61 @@ const hotels = [
         </div>
     </section>
 
-    <section class="max-w-3xl mx-auto p-6">
-        <h2 class="text-3xl font-bold text-center text-orange-600 mb-6">FAQ</h2>
-        <div class="space-y-4">
-            {faqs.map((faq, index) => (
-            <div class="border border-gray-700 rounded-lg overflow-hidden">
-                <button
-                class="w-full text-left p-4 bg-gray-800 text-white flex justify-between items-center"
-                on:click={() => toggleFAQ(index)}
-                >
-                <span>{faq.question}</span>
-                <span class="transform transition-transform" class:list={[openIndex === index ? 'rotate-180' : '']}>▼</span>
+    <div class="max-w-2xl mx-auto p-6">
+        <h2 class="text-3xl font-bold text-center mb-6">FAQ</h2>
+        <div class="flex w-full flex-col gap-4 text-on-surface dark:text-on-surface-dark">
+            <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
+                <button id="controlsAccordionItemOne" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemOne" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
+                    Quand et où se déroule le festival ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    </svg>
                 </button>
-                {openIndex === index && (
-                <div class="p-4 bg-gray-900 text-gray-300">{faq.answer}</div>
-                )}
+                <div x-cloak x-show="isExpanded" id="accordionItemOne" role="region" aria-labelledby="controlsAccordionItemOne"  x-collapse>
+                    <div class="p-4 text-sm sm:text-base text-pretty">
+                        Le festival se déroule du 29 au 31 octobre au Cinéma Le Colisée, 1 rue du Château, 25200 Montbéliard.
+                    </div>
+                </div>
             </div>
-            ))}
+            <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
+                <button id="controlsAccordionItemTwo" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemTwo" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
+                    Quels types de films sont projetés ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    </svg>
+                </button>
+                <div x-cloak x-show="isExpanded" id="accordionItemTwo" role="region" aria-labelledby="controlsAccordionItemTwo"  x-collapse>
+                    <div class="p-4 text-sm sm:text-base text-pretty">
+                        Nous projetons des films d'horreur classiques, ainsi que des d'horreur adaptés aux enfants.
+                    </div>
+                </div>
+            </div>
+            <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
+                <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemThree" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
+                    Comment acheter des billets ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    </svg>
+                </button>
+                <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree"  x-collapse>
+                    <div class="p-4 text-sm sm:text-base text-pretty">
+                        Les billets sont disponibles en ligne sur notre site web ou à la billetterie du festival.
+                    </div>
+                </div>
+            </div>
+            <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
+                <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemThree" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
+                    Y a-t-il des activités pour les enfants ?
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                    </svg>
+                </button>
+                <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree"  x-collapse>
+                    <div class="p-4 text-sm sm:text-base text-pretty">
+                        Oui ! Nous proposons des ateliers de confection de décoration, des ateliers de création fictive de potion magique et des séances de cinéma spécialement pour les enfants.
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </Base>

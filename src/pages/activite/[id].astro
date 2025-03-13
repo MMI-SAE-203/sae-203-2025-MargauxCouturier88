@@ -1,0 +1,31 @@
+---
+import { getActivite, oneActiviteID } from '../../../backend/backend.mjs';
+import Base  from '../../layouts/Base.astro';
+// const { ...film} = Astro.props;
+import ImagePB from "../../components/ImagePB.astro";
+const { id } = Astro.params;
+const Activite = await oneActiviteID(id);
+console.log(Activite);
+
+---
+
+<Base titre={Activite.titre}>
+    <ul>
+            <li>
+                <strong>{Activite.titre}</strong>
+                <div class="relative w-full h-110 overflow-hidden rounded-lg">
+                    <ImagePB 
+                        record={Activite} 
+                        field="img" 
+                        alt={Activite.titre} 
+                        classImg="w-full h-full object-cover"
+                    />
+                </div>
+                <p><strong>Type :</strong> {Activite.type}</p>
+                <p><strong>Catégorie :</strong> {Activite.categorie}</p>
+                <p><strong>Temps de l'activité :</strong> {Activite.duree} min</p>
+                <p><strong>Salle :</strong> {Activite.lieu}</p>
+                <p><strong>Type :</strong> {Activite.description}</p>
+
+    </ul>
+</Base>

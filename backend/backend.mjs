@@ -5,6 +5,12 @@ export { pb };
 // Importer les collections
 
 // Collection Invité
+export async function GetHotel() {
+    const records = await pb.collection('Hotel').getFullList();
+    return records; 
+  }
+
+// Collection Invité
 export async function GetInvite() {
     const records = await pb.collection('Invite').getFullList();
     return records; 
@@ -46,6 +52,12 @@ export async function getAllInvite() {
     return records;
 }
 
+// Retourne la liste de tous les hotels
+
+export async function getAllHotel() {
+    const records = await pb.collection('Hotel').getFullList();
+    return records;
+}
 
 // Retourne les infos d'un film en donnant son id en paramètre
 
@@ -97,5 +109,17 @@ export async function upsertRecord(collection) {
 // Fonction pour récupérer un film spécifique par son ID
 export async function oneFilmID(id) {
     const oneRecord = await pb.collection('Film').getOne(id);
+    return oneRecord;
+}
+
+// Fonction pour récupérer un Actvité spécifique par son ID
+export async function oneActiviteID(id) {
+    const oneRecord = await pb.collection('Activite').getOne(id);
+    return oneRecord;
+}
+
+// Fonction pour récupérer un Invité spécifique par son ID
+export async function oneInviteID(id) {
+    const oneRecord = await pb.collection('Invite').getOne(id);
     return oneRecord;
 }
