@@ -7,49 +7,52 @@ const { id } = Astro.params;
 const film = await oneFilmID(id);
 console.log(film);
 
+import { formatDate } from '../../../backend/helpers.js';
 ---
 
 <Base titre={film.titre}>
-    <ul>
-            <li>
-                <div class="flex flex-col lg:flex-row items-center lg:items-start">
-                    <div class="relative w-70 h-110 overflow-hidden rounded-lg">
-                        <ImagePB 
-                            record={film} 
-                            field="affiche" 
-                            alt={film.titre} 
-                            classImg="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div class="p-6 lg:w-1/2 text-center lg:text-left">
-                        <strong>{film.titre}</strong>
-                        <div set:html={film.synopsis}></div>
-                        <p><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank">Voir</a></p>
-                        <p><strong>Durée :</strong> {film.duree} min</p>
-                        <p><strong>Langue :</strong> {film.langue}</p>
-                        <p><strong>Date :</strong> {film.date_heure_projection}</p>
-                        <p><strong>Salle :</strong> {film.salle_projection}</p>
-                    </div>
-                </div>
+    <ul class="max-w-4xl mx-auto space-y-12">
 
-                <div class="flex flex-col lg:flex-row items-center lg:items-start">
-                    <div class="relative w-70 h-110 overflow-hidden rounded-lg">
-                        <ImagePB 
-                            record={film} 
-                            field="photo_realisateur" 
-                            alt={film.titre} 
-                            classImg="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div class="p-6 lg:w-1/2 text-center lg:text-left">
-                        <h3>Réalisateur</h3>
-                        <p><strong></strong> {film.realisateur}</p>
-                        
-                        <div set:html={film.bio_realisateur}></div>
-                        <p><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
-                        </div>
+        <li class="bg-gray-100 rounded-xl shadow-lg p-6">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <div class="relative w-60 h-96 overflow-hidden rounded-lg shadow-md">
+                    <ImagePB 
+                        record={film} 
+                        field="affiche" 
+                        alt={film.titre} 
+                        classImg="w-full h-full object-cover"
+                    />
                 </div>
-            </li>
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-2xl font-bold text-gray-800">{film.titre}</h2>
+                    <div class="text-lg text-gray-700 leading-relaxed" set:html={film.synopsis}></div>
+                    <p class="mt-3"><strong>Bande-annonce :</strong> <a href={film.bande_annonce} target="_blank" class="text-blue-600 hover:underline">Voir</a></p>
+                    <p><strong>Durée :</strong> {film.duree} min</p>
+                    <p><strong>Langue :</strong> {film.langue}</p>
+                    <p><strong>Date :</strong> {formatDate (film.date_heure_projection)}</p>
+                    <p><strong>Salle :</strong> {film.salle_projection}</p>
+                    <p class="mt-3"><strong>Âge recommandé :</strong> {film.age_recommande} ans</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="bg-gray-100 rounded-xl shadow-lg p-6">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <div class="relative w-60 h-80 overflow-hidden rounded-lg shadow-md">
+                    <ImagePB 
+                        record={film} 
+                        field="photo_realisateur" 
+                        alt={film.realisateur} 
+                        classImg="w-full h-full object-cover"
+                    />
+                </div>
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h3 class="text-xl font-semibold text-gray-800">Réalisateur</h3>
+                    <p class="text-lg text-gray-700 mt-2"><strong>{film.realisateur}</strong></p>
+                    <div class="text-lg text-gray-700 leading-relaxed" set:html={film.bio_realisateur}></div>
+                </div>
+            </div>
+        </li>
 
     </ul>
 </Base>

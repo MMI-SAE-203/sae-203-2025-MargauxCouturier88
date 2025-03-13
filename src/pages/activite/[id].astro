@@ -10,22 +10,35 @@ console.log(Activite);
 ---
 
 <Base titre={Activite.titre}>
-    <ul>
-            <li>
-                <strong>{Activite.titre}</strong>
-                <div class="relative w-full h-110 overflow-hidden rounded-lg">
-                    <ImagePB 
-                        record={Activite} 
-                        field="img" 
-                        alt={Activite.titre} 
-                        classImg="w-full h-full object-cover"
-                    />
-                </div>
-                <p><strong>Type :</strong> {Activite.type}</p>
-                <p><strong>Catégorie :</strong> {Activite.categorie}</p>
-                <p><strong>Temps de l'activité :</strong> {Activite.duree} min</p>
-                <p><strong>Salle :</strong> {Activite.lieu}</p>
-                <div set:html ={Activite.description}></div>
+    <ul class="space-y-6">
+        <li>
+          <strong class="text-2xl font-semibold">{Activite.titre}</strong>
 
-    </ul>
+          <div class="relative w-full h-110 overflow-hidden rounded-lg my-4">
+            <ImagePB 
+              record={Activite} 
+              field="img" 
+              alt={Activite.titre} 
+              classImg="w-full h-full object-cover"
+            />
+          </div>
+
+          <div class="space-y-2">
+            <p class="text-sm">
+              <strong>Type :</strong> {Activite.type}
+            </p>
+            <p class="text-sm">
+              <strong>Catégorie :</strong> {Activite.categorie}
+            </p>
+            <p class="text-sm">
+              <strong>Temps de l'activité :</strong> {Activite.duree} min
+            </p>
+            <p class="text-sm">
+              <strong>Salle :</strong> {Activite.lieu}
+            </p>
+          </div>
+
+          <div class="text-sm mt-4" set:html={Activite.description}></div>
+        </li>
+      </ul>
 </Base>
