@@ -39,10 +39,7 @@ export async function getAllFilm() {
 // Retourne la liste des activités triés par date de projection
 
 export async function getAllActivite() {
-    return await pb.collection('Activite').getFullList({
-      sort: 'first_date_heure',
-      sort: 'second_date_heure',
-    });
+    return await pb.collection('Activite').getFullList();
   }
 
 // Retourne la liste de tous les acteurs / réalisateurs participant au festival triés par ordre alphabétique
