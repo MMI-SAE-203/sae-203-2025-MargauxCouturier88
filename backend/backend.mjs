@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('http://localhost:8090');
+const pb = new PocketBase('https://sae-2023.margaux.optimiseus.fr:443');
 
 export { pb };
 // Importer les collections
